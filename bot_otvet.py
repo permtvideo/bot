@@ -12,7 +12,7 @@ while True:
         cursor.execute("SELECT id, user_id, user_id_2, join_date, message FROM users")
         testarray = cursor.fetchall()
         for i in range(testarray.__len__()):
-            if (int(datetime.now().timestamp()) - testarray[i][3]) >= 60:
+            if (int(datetime.now().timestamp()) - testarray[i][3]) >= 5400:
                 join_date = int(datetime.now().timestamp())
                 id = testarray[i][0]
                 cursor.execute("UPDATE users SET join_date=(?) WHERE id=(?)", (join_date, id))
