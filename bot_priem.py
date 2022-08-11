@@ -50,7 +50,6 @@ def cikl():
         bot.polling()
     except Exception as e:
         print (e)
-        bot.send_message(chat_id=306095025, text=str(e))
         time.sleep(10)
         cikl()
 cikl()
