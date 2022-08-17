@@ -28,7 +28,7 @@ def cikl():
                     conn.close()
     except Exception as e:
         #bot.send_message(chat_id=testarray[i][1], text='Все сломалось! Обратитесь к специалистам!')
-        bot.send_message(chat_id=306095025, text=str(testarray[i][0]) + ' ' + testarray[i][2]) + '  ' + str(e))
+        bot.send_message(chat_id=306095025, text=str(testarray[i][0]) + ' ' + str(testarray[i][2]) + '  ' + str(e))
         conn.close()
         time.sleep(1)
         print(e)
