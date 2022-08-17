@@ -8,7 +8,7 @@ def cikl():
     bot = telebot.TeleBot('5195821377:AAF8WyEzmyl40dSTcqQp0WVYnvyJjEyUo2o')
     try:
         while True:
-                if datetime.now().second == 0:
+                if datetime.now().second == 0 and datetime.now().hour >= 8 and datetime.now().hour <= 1:
                     conn = sqlite3.connect('bd_bot.db')
                     cursor = conn.cursor()
                     cursor.execute("SELECT id, user_id, user_id_2, join_date, message, username FROM users")
