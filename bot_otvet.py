@@ -9,6 +9,7 @@ def cikl():
     try:
         while True:
                 if datetime.now().second == 0:
+                    print (datetime.now().hour)
                     conn = sqlite3.connect('bd_bot.db')
                     cursor = conn.cursor()
                     cursor.execute("SELECT id, user_id, user_id_2, join_date, message, username FROM users")
