@@ -50,6 +50,8 @@ def cikl():
         bot.polling()
     except Exception as e:
         print (e)
-        time.sleep(10)
+        if conn != None:
+            conn.close()
+        time.sleep(50)
         cikl()
 cikl()
