@@ -47,7 +47,7 @@ def cikl():
                         bot.reply_to(message, str(id) + ' Ответ цифрой задает время напоминания (в часах), другим символом отменяет его')
                     conn.commit()
                     conn.close()
-        bot.polling()
+        bot.polling(true)
     except Exception as e:
         print (e)
         if conn != None:
