@@ -36,12 +36,28 @@ def cikl():
                         proverka = message.text.replace(",", ".")
                         id_from_text = message.reply_to_message.text.split()
                         try:
-                            float(proverka)
                             join_date = int(message.date - 5400 + float(proverka) * 3600)
+                            now = datetime.fromtimestamp(join_date + 5400)
+                            week = int(now.strftime("%w"))
+                            if week >= 6:
+                                day = "суббота"
+                            elif week >= 5:
+                                day = 'пятница'
+                            elif week >= 4:
+                                day = 'четверг'
+                            elif week >= 3:
+                                day = 'среда'
+                            elif week >= 2:
+                                day = 'вторник'
+                            elif week == 1:
+                                day = 'понедельник'
+                            else:
+                                day = 'воскресенье'
                             cursor.execute("UPDATE users SET join_date=(?) WHERE id=(?)", (join_date, id_from_text[0]))
+                            bot.send_message(chat_id=message.chat.id, text=str(id_from_text[0]) + ' Напоминание было перенесено на ' + str(now.strftime("%d.%m ")) + str(day) + str(now.strftime(" %H:%M")))
                         except ValueError:
                             cursor.execute("DELETE from users where id = (?)", (id_from_text[0], ))
-                            bot.reply_to(message, str(id) + ' Напоминание было удалено')
+                            bot.reply_to(message, text=str(id_from_text[0]) + ' Напоминание было удалено')
                     else:
                         cursor.execute("INSERT INTO users values (?, ?, ?, ?, ?, ?)", (id, user_id, user_id_2, join_date, message_id_to_id,username, ))
                         bot.reply_to(message, str(id) + ' Ответ цифрой задает время напоминания (в часах), другим символом отменяет его')
@@ -49,7 +65,6 @@ def cikl():
                     conn.close()
         bot.polling()
     except Exception as e:
-        print (e)
         bot.infinity_polling()
         time.sleep(1)
         cikl()
