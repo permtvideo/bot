@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def cikl():
-    bot = telebot.TeleBot('5195821377:AAF8WyEzmyl40dSTcqQp0WVYnvyJjEyUo2o')
+    bot = telebot.TeleBot('8287431291:AAH-0y4YeXucOP5gkpQrC732m-Jo70PS49M')
     try:
         @bot.message_handler()
         def start(message):
@@ -69,3 +69,4 @@ def cikl():
         time.sleep(1)
         cikl()
 cikl()
+
