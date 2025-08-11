@@ -5,7 +5,7 @@ from datetime import datetime
 
 def cikl():
 
-    bot = telebot.TeleBot('5195821377:AAF8WyEzmyl40dSTcqQp0WVYnvyJjEyUo2o')
+    bot = telebot.TeleBot('8287431291:AAH-0y4YeXucOP5gkpQrC732m-Jo70PS49M')
     try:
         while True:
                 if (datetime.now().second == 0 and (datetime.now().hour >= 8 or datetime.now().hour <= 1)):
@@ -39,3 +39,4 @@ def cikl():
         print(e)
         cikl()
 cikl()
+
