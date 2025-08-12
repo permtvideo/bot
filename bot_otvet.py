@@ -35,9 +35,9 @@ def cikl():
             bot.send_message(chat_id=306095025, text=str(testarray[i][0]) + ' ' + str(testarray[i][2]) + '  удалено из-за блока юзером')
         else:
             if " message to be replied not found " in str(e):
-            cursor.execute("UPDATE users SET join_date=(?) WHERE id=(?)", (join_date, id))
-            conn.commit()
-            bot.send_message(chat_id=testarray[i][1], text=str(testarray[i][0]) + ' ' + str(testarray[i][4]))
+                cursor.execute("UPDATE users SET join_date=(?) WHERE id=(?)", (join_date, id))
+                conn.commit()
+                bot.send_message(chat_id=testarray[i][1], text=str(testarray[i][0]) + ' ' + str(testarray[i][4]))
             else:
                 bot.send_message(chat_id=306095025, text=str(testarray[i][0]) + ' ' + str(testarray[i][2]) + '  ' + str(e))
         conn.close()
@@ -45,5 +45,6 @@ def cikl():
         print(e)
         cikl()
 cikl()
+
 
 
